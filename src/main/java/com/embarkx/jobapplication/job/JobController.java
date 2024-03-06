@@ -54,9 +54,6 @@ public class JobController {
             return new ResponseEntity<>("Job updated successfully", HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-
-
     }
 
 }

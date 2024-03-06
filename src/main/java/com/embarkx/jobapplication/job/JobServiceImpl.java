@@ -14,8 +14,6 @@ public class JobServiceImpl implements JobService{
         this.jobRepository = jobRepository;
     }
 
-    private Long nextId = 1L;
-
     @Override
     public List<Job> findAll() {
         return jobRepository.findAll();
@@ -23,7 +21,6 @@ public class JobServiceImpl implements JobService{
 
     @Override
     public void createJob(Job job) {
-        job.setId(nextId++);
         jobRepository.save(job);
 
     }
@@ -79,6 +76,7 @@ public class JobServiceImpl implements JobService{
             job.setLocation(updateJob.getLocation());
             job.setMinSalary(updateJob.getMinSalary());
             job.setMaxSalary(updateJob.getMaxSalary());
+            jobRepository.save(job);
             return true;
         }
         return false;
